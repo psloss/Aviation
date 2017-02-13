@@ -20,6 +20,21 @@
         <th>
             @Html.DisplayNameFor(model => model.Model)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SerialNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YearManufactured)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EngineManufacturer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AnnualDueDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastOilChangeHours)
+        </th>
         <th></th>
     </tr>
 
@@ -33,6 +48,21 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SerialNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YearManufactured)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EngineManufacturer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AnnualDueDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastOilChangeHours)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

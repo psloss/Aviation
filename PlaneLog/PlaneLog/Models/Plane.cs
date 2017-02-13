@@ -11,6 +11,10 @@ namespace PlaneLog.Models
         public string TailNumber { get; set; }
         public string Manufacturer { get; set; }
         public string Model { get; set; }
-    
+        public string SerialNumber { get; set; }
+        public int? YearManufactured { get; set; }
+        public string EngineManufacturer { get; set; }
+        public DateTime? AnnualDueDate { get; set; }
+        public double? LastOilChangeHours { get; set; }
     }
 }
