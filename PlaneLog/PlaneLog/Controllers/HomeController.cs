@@ -15,7 +15,7 @@ namespace PlaneLog.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Plane and Flight logging program";
 
             return View();
         }
