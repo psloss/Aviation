@@ -22,5 +22,7 @@ namespace PlaneLog.Models
         public double? FuelCostTotal { get; set; }
         public string Remarks { get; set; }
         public double? FuelUseHour { get; set; }
+
+        public string TimeOutDate { get { return TimeOut == null ? string.Empty : TimeOut.Value.ToString("MM/dd/yy"); } }
     }
 }
