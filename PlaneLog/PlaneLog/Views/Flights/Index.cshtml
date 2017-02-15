@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Flight Listing</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -17,6 +17,39 @@
         <th>
             @Html.DisplayNameFor(model => model.FlightDate)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeOut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeIn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HobbsOut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HobbsIn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FuelOut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FuelIn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FuelPurchased)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FuelCostGallon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FuelCostTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FuelUseHour)
+        </th>
         <th></th>
     </tr>
 
@@ -27,6 +60,39 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.FlightDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeOut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeIn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HobbsOut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HobbsIn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FuelOut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FuelIn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FuelPurchased)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FuelCostGallon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FuelCostTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Remarks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FuelUseHour)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
