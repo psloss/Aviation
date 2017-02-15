@@ -16,5 +16,7 @@ namespace PlaneLog.Models
         public string EngineManufacturer { get; set; }
         public DateTime? AnnualDueDate { get; set; }
         public double? LastOilChangeHours { get; set; }
+
+        public List<Flight> Flights { get; set; }
     }
 }
