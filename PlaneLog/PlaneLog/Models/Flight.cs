@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using static PlaneLog.Utils;
 
 namespace PlaneLog.Models
 {
@@ -18,13 +19,24 @@ namespace PlaneLog.Models
         public decimal? FuelPurchased { get; set; }
         public decimal? FuelCostGallon { get; set; }
         public decimal? FuelCostTotal { get; set; }
+        public int? AddedOil { get; set; }
+        public int? OilChange { get; set; }
         public string Remarks { get; set; }
-        // public double? FuelUseHour { get; set; }
+      
 
         public string FlightDateDate { get { return FlightDate == null ? string.Empty : FlightDate.Value.ToString("MM/dd/yy"); } }
         public decimal HoursFlown { get { return (decimal)HobbsIn - (decimal)HobbsOut; } }
         public decimal FuelUsage { get { return (decimal)FuelOut - (decimal)FuelIn + (decimal)FuelPurchased; } }
-        public decimal FuelUseHour { get { return (decimal)FuelUsage / (decimal)HoursFlown; } }
+        public decimal FuelUseHour { get { return (decimal)FuelUsage / HoursFlown; } }
+        public string HobbsOForm { get { return FormNum(HobbsOut); } }
+        public string HobbsIForm { get { return FormNum(HobbsIn); } }
 
+        
+        //public string Hobbs(decimal rawNum)
+        //{
+            
+        //}
     }
+
 }
+
