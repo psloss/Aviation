@@ -11,18 +11,20 @@ namespace PlaneLog.Models
         public int PlaneId { get; set; }
         public Plane Plane { get; set; }
         public DateTime? FlightDate { get; set; }
-        public DateTime? TimeOut { get; set; }
-        public DateTime? TimeIn { get; set; }
-        public double? HobbsOut { get; set; }
-        public double? HobbsIn { get; set; }
-        public double? FuelOut { get; set; }
-        public double? FuelIn { get; set; }
-        public double? FuelPurchased { get; set; }
-        public double? FuelCostGallon { get; set; }
-        public double? FuelCostTotal { get; set; }
+        public decimal? HobbsOut { get; set; }
+        public decimal? HobbsIn { get; set; }
+        public decimal? FuelOut { get; set; }
+        public decimal? FuelIn { get; set; }
+        public decimal? FuelPurchased { get; set; }
+        public decimal? FuelCostGallon { get; set; }
+        public decimal? FuelCostTotal { get; set; }
         public string Remarks { get; set; }
-        public double? FuelUseHour { get; set; }
+        // public double? FuelUseHour { get; set; }
 
-        public string TimeOutDate { get { return TimeOut == null ? string.Empty : TimeOut.Value.ToString("MM/dd/yy"); } }
+        public string FlightDateDate { get { return FlightDate == null ? string.Empty : FlightDate.Value.ToString("MM/dd/yy"); } }
+        public decimal HoursFlown { get { return (decimal)HobbsIn - (decimal)HobbsOut; } }
+        public decimal FuelUsage { get { return (decimal)FuelOut - (decimal)FuelIn + (decimal)FuelPurchased; } }
+        public decimal FuelUseHour { get { return (decimal)FuelUsage / (decimal)HoursFlown; } }
+
     }
 }

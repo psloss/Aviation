@@ -18,5 +18,7 @@ namespace PlaneLog.Models
         public double? LastOilChangeHours { get; set; }
 
         public List<Flight> Flights { get; set; }
+
+        public string AnnualDue { get { return AnnualDueDate == null ? string.Empty : AnnualDueDate.Value.ToString("MM/dd/yy"); } }
     }
 }
