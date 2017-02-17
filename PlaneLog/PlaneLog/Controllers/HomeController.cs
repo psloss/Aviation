@@ -32,5 +32,11 @@ namespace PlaneLog.Controllers
             ViewBag.Message = "Planes";
             return View();
         }
+
+        public ActionResult Reports()
+        {
+            ViewBag.Message = "Reports";
+            return View();
+        }
     }
 }

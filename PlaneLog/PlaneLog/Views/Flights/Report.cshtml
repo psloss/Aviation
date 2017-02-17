@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<PlaneLog.Models.Flight>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Report";
 }
 
-<h2>Index of Flights</h2>
+<h2>Report</h2>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
 
-<p>
-    @Html.ActionLink("Create New", "Create") @Html.ActionLink("   Reports Page", "Report")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -16,27 +16,30 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.FltDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HobbsOut)
-        </th>
+        </th>        
         <th>
             @Html.DisplayNameFor(model => model.HobbsIn)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FuelOut)
+            @Html.DisplayNameFor(model => model.HoursFlown)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FuelIn)
+            @Html.DisplayNameFor(model => model.FuelUsage)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FuelPurchased)
+            @Html.DisplayNameFor(model => model.FuelUseHour)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FuelCostGallon)
+            @Html.DisplayNameFor(model => model.FuelCostGallon) 
         </th>
         <th>
             @Html.DisplayNameFor(model => model.FuelCostTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AddedOil)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OilChange)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Remarks)
@@ -52,20 +55,18 @@
         <td>
             @Html.DisplayFor(modelItem => item.FltDate)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HobbsOForm)
-        </td>
+        
         <td>
             @Html.DisplayFor(modelItem => item.HobbsIForm)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FuelOut)
+            @Html.DisplayFor(modelItem => item.HoursFlown)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FuelIn)
+            @Html.DisplayFor(modelItem => item.FuelUsage)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FuelPurchased)
+            @Html.DisplayFor(modelItem => item.FuelUseHour)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.FuelCostGallon)
@@ -74,12 +75,16 @@
             @Html.DisplayFor(modelItem => item.FuelCostTotal)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.AddedOil)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OilChange)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Remarks)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })          
         </td>
     </tr>
 }

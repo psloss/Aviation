@@ -21,6 +21,13 @@ namespace PlaneLog.Controllers
             return View(flights.ToList());
         }
 
+        // GET: Report
+        public ActionResult Report()
+        {
+            var flights = db.Flights.Include(f => f.Plane);
+            return View(flights.ToList());
+        }
+
         // GET: Flights/Details/5
         public ActionResult Details(int? id)
         {

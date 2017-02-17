@@ -13,6 +13,23 @@ namespace PlaneLog
             return FormtNum;
         }
 
-        FuelFlow static decimal 
+        public static decimal FuelUsed(decimal? fuelout, decimal? fuelin, decimal? fuelpurch)
+        {
+            if (fuelpurch == null) { fuelpurch = 0; }
+            decimal FuelUsed = (decimal)fuelout - (decimal)fuelin + (decimal)fuelpurch;
+            return FuelUsed;
+        }
+
+        public static decimal TimeFlown(decimal hobbsout, decimal hobbsin)
+        {
+            decimal TimeFlown = hobbsin - hobbsout;
+            return TimeFlown;
+        }
+
+        public static decimal FuelPerHour(decimal TimeFlown, decimal FuelUsed)
+        {
+            decimal FuelPerHour = FuelUsed / TimeFlown;
+            return FuelPerHour;
+        }
     }
 }

@@ -24,18 +24,16 @@ namespace PlaneLog.Models
         public string Remarks { get; set; }
       
 
-        public string FlightDateDate { get { return FlightDate == null ? string.Empty : FlightDate.Value.ToString("MM/dd/yy"); } }
+        public string FltDate { get { return FlightDate == null ? string.Empty : FlightDate.Value.ToString("MM/dd/yy"); } }
         public decimal HoursFlown { get { return (decimal)HobbsIn - (decimal)HobbsOut; } }
-        public decimal FuelUsage { get { return (decimal)FuelOut - (decimal)FuelIn + (decimal)FuelPurchased; } }
+    //    public decimal FuelUsage { get { return (decimal)FuelOut - (decimal)FuelIn; } }
+        public decimal FuelUsage { get { return FuelUsed(FuelOut, FuelIn, FuelPurchased); } }
         public decimal FuelUseHour { get { return (decimal)FuelUsage / HoursFlown; } }
         public string HobbsOForm { get { return FormNum(HobbsOut); } }
         public string HobbsIForm { get { return FormNum(HobbsIn); } }
-
         
-        //public string Hobbs(decimal rawNum)
-        //{
-            
-        //}
+        
+        
     }
 
 }

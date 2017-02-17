@@ -15,7 +15,8 @@ namespace PlaneLog.Models
         public int? YearManufactured { get; set; }
         public string EngineManufacturer { get; set; }
         public DateTime? AnnualDueDate { get; set; }
-        public double? LastOilChangeHours { get; set; }
+        public decimal? HoursLastAnnual { set; get; }
+        public decimal? LastOilChangeHours { get; set; }
 
         public List<Flight> Flights { get; set; }
 
