@@ -20,24 +20,25 @@ namespace PlaneLog
         public static decimal FuelUsed(decimal? fuelout, decimal? fuelin, decimal? fuelpurch)
         {
             if (fuelpurch == null) { fuelpurch = 0; }
+            if (fuelout == null) { fuelout = 0; fuelin = 0; }
             decimal FuelUsed = (decimal)fuelout - (decimal)fuelin + (decimal)fuelpurch;
             return FuelUsed;
         }
 
-        [DisplayName("Hours\nFlown")]
-        public static decimal TimeFlown(decimal hobbsout, decimal hobbsin)
-        {
-            decimal TimeFlown = hobbsin - hobbsout;
-            return TimeFlown;
+        //[DisplayName("Hours\nFlown")]
+        //public static decimal TimeFlown(decimal hobbsout, decimal hobbsin)
+        //{
+        //    decimal TimeFlown = hobbsin - hobbsout;
+        //    return TimeFlown;
         }
 
-        [DisplayName("Gallons\n\\ Hour")]
-        public static decimal FuelPerHour(decimal TimeFlown, decimal FuelUsed)
-        {
-            decimal FuelPerHour = FuelUsed / TimeFlown;
-            return FuelPerHour;
-        }
+        //[DisplayName("Gallons\n\\ Hour")]
+        //public static decimal FuelPerHour(decimal TimeFlown, decimal FuelUsed)
+        //{
+        //    decimal FuelPerHour = FuelUsed / TimeFlown;
+        //    return FuelPerHour;
+        //}
     //    public decimal HoursSinceOilChange { get { return (decimal)HobbsIn - LastOilChangeHours} }
 
     }
-    }
+    

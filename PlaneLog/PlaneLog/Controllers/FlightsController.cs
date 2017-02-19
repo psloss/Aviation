@@ -55,7 +55,8 @@ namespace PlaneLog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,PlaneId,FlightDate,HobbsOut,HobbsIn,FuelOut,FuelIn,FuelPurchased,FuelCostGallon,FuelCostTotal,Remarks")] Flight flight)
+        public ActionResult Create([Bind(Include = "Id,PlaneId,FlightDate,HobbsOut,HobbsIn,FuelOut,FuelIn,FuelPurchased," + 
+            "FuelCostGallon,FuelCostTotal,AddedOil,OilChange,Remarks")] Flight flight)
         {
             if (ModelState.IsValid)
             {
@@ -89,7 +90,8 @@ namespace PlaneLog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,PlaneId,FlightDate,HobbsOut,HobbsIn,FuelOut,FuelIn,FuelPurchased,FuelCostGallon,FuelCostTotal,Remarks")] Flight flight)
+        public ActionResult Edit([Bind(Include = "Id,PlaneId,FlightDate,HobbsOut,HobbsIn,FuelOut,FuelIn,FuelPurchased," +
+            "FuelCostGallon,FuelCostTotal,AddedOil,OilChange,Remarks")] Flight flight)
         {
             if (ModelState.IsValid)
             {

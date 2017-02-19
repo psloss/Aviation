@@ -48,7 +48,7 @@ namespace PlaneLog.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,TailNumber,Manufacturer,Model,SerialNumber,YearManufactured,EngineManufacturer," +
-            "AnnualDueDate,HoursLastAnnual,LastOilChangeHours,RegistrationExpirationDate")] Plane plane)
+            "AnnualDueDate,HoursLastAnnual,LastOilChangeHours,EngineHours,RegistrationExpirationDate")] Plane plane)
         {
             if (ModelState.IsValid)
             {
@@ -81,7 +81,7 @@ namespace PlaneLog.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,TailNumber,Manufacturer,Model,SerialNumber,YearManufactured,EngineManufacturer," +
-            "AnnualDueDate,HoursLastAnnual,LastOilChangeHours,RegistrationExpirationDate")] Plane plane)
+            "AnnualDueDate,HoursLastAnnual,LastOilChangeHours,EngineHours,RegistrationExpirationDate")] Plane plane)
         {
             if (ModelState.IsValid)
             {

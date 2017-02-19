@@ -17,32 +17,41 @@ namespace PlaneLog.Models
         public int PlaneId { get; set; }
         public Plane Plane { get; set; }
         [DisplayName("Date")]
-        [DisplayFormat(DataFormatString ="{0:MM/dd/yy}")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yy}")]
         public DateTime? FlightDate { get; set; }
+
         [DisplayName("Hobbs\nOut")]
-        [DisplayFormat(DataFormatString ="{0:N1}")]
+        [DisplayFormat(DataFormatString = "{0:N1}")]
         public decimal? HobbsOut { get; set; }
+
         [DisplayName("Hobbs\nIn")]
         [DisplayFormat(DataFormatString = "{0:N1}")]
         public decimal? HobbsIn { get; set; }
+
         [DisplayName("Fuel\nOut")]
         [DisplayFormat(DataFormatString = "{0:N1}")]
         public decimal? FuelOut { get; set; }
+
         [DisplayName("Fuel\nIn")]
         [DisplayFormat(DataFormatString = "{0:N1}")]
         public decimal? FuelIn { get; set; }
+
         [DisplayName("Fuel gals\nPurchased")]
         public decimal? FuelPurchased { get; set; }
+
         [DisplayName("Fuel Px\nGallon")]
-   //     [DisplayFormat(DataFormatString ="{C2}")]
+        //     [DisplayFormat(DataFormatString ="{C2}")]
         public decimal? FuelCostGallon { get; set; }
+
         [DisplayName("Fuel Cost\nTotal")]
         public decimal? FuelCostTotal { get; set; }
-        [DisplayName("Added\nOil")]
-        public int? AddedOil { get; set; }
-        [DisplayName("Changed\nOIl")]
-        public int? OilChange { get; set; }
-        [DisplayFormat]
+
+        [DisplayName("Oil\nAdded")]
+        public string AddedOil { get; set; }
+
+        [DisplayName("Oil\nChanged")]
+        public string OilChange { get; set; }
+
         public string Remarks { get; set; }
 
         [DisplayName("Flight\nDate")]
@@ -53,9 +62,17 @@ namespace PlaneLog.Models
         public decimal FuelUseHour { get { return (decimal)FuelUsage / HoursFlown; } }
         public string HobbsOForm { get { return FormNum(HobbsOut); } }
         public string HobbsIForm { get { return FormNum(HobbsIn); } }
- //       public string HoursSinceOilChange { get { return FormNum((decimal)HobbsIn - (decimal)LastOilChangeHours); } }
+        //       public string HoursSinceOilChange { get { return FormNum((decimal)HobbsIn - (decimal)LastOilChangeHours); } }
+
+        [DisplayName("Gallons\n / Hour")]
+        public decimal FuelPerHour { get { return (decimal) FuelUsage / (decimal) HoursFlown; } }
+        
+        
 
     }
-        
+    public class Util
+    {
+        // comment
     }
+}
 
