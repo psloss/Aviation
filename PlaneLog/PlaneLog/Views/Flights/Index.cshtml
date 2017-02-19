@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index of Flights</h2>
+<h2>Flights</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create") @Html.ActionLink("   Reports Page", "Report")
@@ -15,7 +15,7 @@
             @Html.DisplayNameFor(model => model.Plane.TailNumber)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FltDate)
+            @Html.DisplayNameFor(model => model.FlightDate)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.HobbsOut)
@@ -50,13 +50,13 @@
             @Html.DisplayFor(modelItem => item.Plane.TailNumber)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FltDate)
+            @Html.DisplayFor(modelItem => item.FlightDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.HobbsOForm)
+            @Html.DisplayFor(modelItem => item.HobbsOut)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.HobbsIForm)
+            @Html.DisplayFor(modelItem => item.HobbsIn)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.FuelOut)
