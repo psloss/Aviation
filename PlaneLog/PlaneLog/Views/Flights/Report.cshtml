@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<PlaneLog.Models.Flight>
- @*   @using ( static PlaneLog.Utils) *@
+ 
 
 @{
     ViewBag.Title = "Report";
@@ -34,7 +34,7 @@
             @Html.DisplayNameFor(model => model.FuelCostGallon) 
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FuelCostTotal)
+            @Html.DisplayNameFor(model => model.FuelCostTD)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.AddedOil)
@@ -73,7 +73,7 @@
             @Html.DisplayFor(modelItem => item.FuelCostGallon)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FuelCostTotal)
+            @Html.DisplayFor(modelItem => item.FuelCostTD)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.AddedOil)

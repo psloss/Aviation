@@ -37,42 +37,46 @@ namespace PlaneLog.Models
         public decimal? FuelIn { get; set; }
 
         [DisplayName("Fuel gals\nPurchased")]
+        [DisplayFormat(DataFormatString = "{0:N1}")]
         public decimal? FuelPurchased { get; set; }
 
-        [DisplayName("Fuel Px\nGallon")]
-        //     [DisplayFormat(DataFormatString ="{C2}")]
+        [DisplayName("Fuel $\nGallon")]
+       // [DisplayFormat(DataFormatString ="{C}")]
         public decimal? FuelCostGallon { get; set; }
 
         [DisplayName("Fuel Cost\nTotal")]
         public decimal? FuelCostTotal { get; set; }
 
-        [DisplayName("Oil\nAdded")]
+        [DisplayName("Oil \nAdded")]
         public string AddedOil { get; set; }
 
-        [DisplayName("Oil\nChanged")]
+        [DisplayName("Oil \nChanged")]
         public string OilChange { get; set; }
 
         public string Remarks { get; set; }
 
+        // formatters for the fields above
+
         [DisplayName("Flight\nDate")]
         public string FltDate { get { return FlightDate == null ? string.Empty : FlightDate.Value.ToString("MM/dd/yy"); } }
+        [DisplayName("Hours\nFlown")]
         public decimal HoursFlown { get { return (decimal)HobbsIn - (decimal)HobbsOut; } }
-        //    public decimal FuelUsage { get { return (decimal)FuelOut - (decimal)FuelIn; } }
+        
+        [DisplayName("Fuel\nUsed")]
         public decimal FuelUsage { get { return FuelUsed(FuelOut, FuelIn, FuelPurchased); } }
         public decimal FuelUseHour { get { return (decimal)FuelUsage / HoursFlown; } }
         public string HobbsOForm { get { return FormNum(HobbsOut); } }
         public string HobbsIForm { get { return FormNum(HobbsIn); } }
-        //       public string HoursSinceOilChange { get { return FormNum((decimal)HobbsIn - (decimal)LastOilChangeHours); } }
+        [DisplayName("Fuel\nGallon")]
+        public string FuelCostGD { get { return FormDol(FuelCostGallon); } }
+        [DisplayName("Fuel Cost\nTotal")]
+        public string FuelCostTD { get { return FormDol(FuelCostTotal); } }
 
-        [DisplayName("Gallons\n / Hour")]
-        public decimal FuelPerHour { get { return (decimal) FuelUsage / (decimal) HoursFlown; } }
-        
-        
+        [DisplayName("Gallons \n Hour")]
+        public decimal FuelPerHour { get { return (decimal)FuelUsage / HoursFlown; } }
 
-    }
-    public class Util
-    {
-        // comment
+        //    public decimal FuelUsage { get { return (decimal)FuelOut - (decimal)FuelIn; } }
     }
 }
+
 

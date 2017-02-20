@@ -269,6 +269,5 @@ C:\Users\psloss\Source\Repos\Aviation\PlaneLog\PlaneLog\bin\Microsoft.Owin.Secur
 C:\Users\psloss\Source\Repos\Aviation\PlaneLog\PlaneLog\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\psloss\Source\Repos\Aviation\PlaneLog\PlaneLog\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\psloss\Source\Repos\Aviation\PlaneLog\PlaneLog\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\psloss\Source\Repos\Aviation\PlaneLog\PlaneLog\obj\Debug\PlaneLog.csprojResolveAssemblyReference.cache
 C:\Users\psloss\Source\Repos\Aviation\PlaneLog\PlaneLog\obj\Debug\PlaneLog.dll
 C:\Users\psloss\Source\Repos\Aviation\PlaneLog\PlaneLog\obj\Debug\PlaneLog.pdb
