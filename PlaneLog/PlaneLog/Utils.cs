@@ -16,13 +16,7 @@ namespace PlaneLog
         }
 
 
-        public static decimal FuelUsed(decimal? fuelout, decimal? fuelin, decimal? fuelpurch)
-        {
-            if (fuelpurch == null) { fuelpurch = 0; }
-            if (fuelout == null) { fuelout = 0; fuelin = 0; }
-            decimal FuelUsed = (decimal)fuelout - (decimal)fuelin + (decimal)fuelpurch;
-            return FuelUsed;
-        }
+      
 
         public static string FormDol(decimal? inp)
         {

@@ -13,18 +13,26 @@ namespace PlaneLog.Controllers
     public class FlightsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
+        
         // GET: Flights
-        public ActionResult Index()
+        public ActionResult Index(int? planeId)
         {
             var flights = db.Flights.Include(f => f.Plane);
+            if(planeId.HasValue)
+            {
+                flights = flights.Where(x => x.PlaneId == planeId);
+            }
+
+            flights = flights.OrderByDescending(x => x.FlightDate);
+
+            ViewBag.TailNumbers = db.Planes.ToDictionary(x=> x.Id,x => x.TailNumber).OrderBy(x => x.Value);
             return View(flights.ToList());
         }
 
         // GET: Report
         public ActionResult Report()
         {
-            var flights = db.Flights.Include(f => f.Plane);
+            var flights = db.Flights.Include(f => f.Plane).OrderByDescending(x => x.FlightDate);
             return View(flights.ToList());
         }
 
@@ -96,6 +104,8 @@ namespace PlaneLog.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(flight).State = EntityState.Modified;
+
+                //flight.Plane.EngineHours = flight.HobbsIn;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

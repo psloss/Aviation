@@ -90,7 +90,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.AddedOil, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.AddedOil, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.CheckBoxFor(model => model.AddedOil, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.AddedOil, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -98,7 +98,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.OilChange, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.OilChange, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.CheckBoxFor(model => model.OilChange, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.OilChange, "", new { @class = "text-danger" })
             </div>
         </div>

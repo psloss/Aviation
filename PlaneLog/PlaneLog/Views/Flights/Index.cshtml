@@ -9,6 +9,14 @@
 <p>
     @Html.ActionLink("Create New", "Create") 
 </p>
+<div>
+    <div class="form-group">
+        @Html.Label( "Plane", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("planeId", new SelectList(ViewBag.TailNumbers, "Key", "Value"))
+        </div>
+    </div>
+</div>
 <table class="table">
     <tr>
         <th>

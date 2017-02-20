@@ -28,7 +28,7 @@ namespace PlaneLog.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Plane plane = db.Planes.Find(id);
+            Plane plane = db.Planes.Include(x => x.Flights).FirstOrDefault(x => x.Id == id);
             if (plane == null)
             {
                 return HttpNotFound();

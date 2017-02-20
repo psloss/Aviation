@@ -41,17 +41,17 @@ namespace PlaneLog.Models
         public decimal? FuelPurchased { get; set; }
 
         [DisplayName("Fuel $\nGallon")]
-       // [DisplayFormat(DataFormatString ="{C}")]
+        // [DisplayFormat(DataFormatString ="{C}")]
         public decimal? FuelCostGallon { get; set; }
 
         [DisplayName("Fuel Cost\nTotal")]
         public decimal? FuelCostTotal { get; set; }
 
         [DisplayName("Oil \nAdded")]
-        public string AddedOil { get; set; }
+        public bool AddedOil { get; set; }
 
         [DisplayName("Oil \nChanged")]
-        public string OilChange { get; set; }
+        public bool OilChange { get; set; }
 
         public string Remarks { get; set; }
 
@@ -61,7 +61,7 @@ namespace PlaneLog.Models
         public string FltDate { get { return FlightDate == null ? string.Empty : FlightDate.Value.ToString("MM/dd/yy"); } }
         [DisplayName("Hours\nFlown")]
         public decimal HoursFlown { get { return (decimal)HobbsIn - (decimal)HobbsOut; } }
-        
+
         [DisplayName("Fuel\nUsed")]
         public decimal FuelUsage { get { return FuelUsed(FuelOut, FuelIn, FuelPurchased); } }
         public decimal FuelUseHour { get { return (decimal)FuelUsage / HoursFlown; } }
@@ -75,6 +75,13 @@ namespace PlaneLog.Models
         [DisplayName("Gallons \n Hour")]
         public decimal FuelPerHour { get { return (decimal)FuelUsage / HoursFlown; } }
 
+        private decimal FuelUsed(decimal? fuelout, decimal? fuelin, decimal? fuelpurch)
+        {
+            if (fuelpurch == null) { fuelpurch = 0; }
+            if (fuelout == null) { fuelout = 0; fuelin = 0; }
+            decimal FuelUsed = (decimal)fuelout - (decimal)fuelin + (decimal)fuelpurch;
+            return FuelUsed;
+        }
         //    public decimal FuelUsage { get { return (decimal)FuelOut - (decimal)FuelIn; } }
     }
 }

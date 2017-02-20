@@ -28,19 +28,18 @@ namespace PlaneLog.Models
         public DateTime? AnnualDueDate { get; set; }
 
         [DisplayName("Hours at\nAnnual")]
-        [DisplayFormat(DataFormatString ="{0:N1}")]
+        [DisplayFormat(DataFormatString = "{0:N1}")]
         public decimal? HoursLastAnnual { set; get; }
 
-        [DisplayName("Current Hours")]
-        [DisplayFormat(DataFormatString = "{0:N1}")]
-        public decimal? EngineHours { get; set; }
+
+        // public decimal?  { get; set; }
 
         [DisplayName("Hours at\nOil Change")]
         [DisplayFormat(DataFormatString = "{0:N1}")]
         public decimal? LastOilChangeHours { get; set; }
 
         [DisplayName("Registration\nExpiration")]
-        [DisplayFormat(DataFormatString ="MM/yy")]
+        [DisplayFormat(DataFormatString = "MM/yy")]
         public DateTime? RegistrationExpirationDate { get; set; }
 
         public List<Flight> Flights { get; set; }
@@ -50,6 +49,23 @@ namespace PlaneLog.Models
 
         [DisplayName("Registration\nExpiration")]
         public string RegistrationDue { get { return RegistrationExpirationDate == null ? string.Empty : RegistrationExpirationDate.Value.ToString("MM/yy"); } }
+
+        [DisplayName("Current Hours")]
+        [DisplayFormat(DataFormatString = "{0:N1}")]
+        public decimal? EngineHours
+        {
+            get
+            {
+                var latestFlight = Flights?.OrderByDescending(x => x.FlightDate)
+                    //.Where(x=> x.OilChange == true)
+                    .FirstOrDefault();
+                if (latestFlight != null)
+                    return latestFlight.HobbsIn;
+                return null;
+            }
+
+            set { }
+        }
     }
 }
 
