@@ -19,10 +19,13 @@ x64/
 build/
 [Bb]in/
 [Oo]bj/
+PlaneLog/PlaneLog/[Oo]bj/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
+
+PlaneLog/.vs/
 
 *_i.c
 *_p.c
