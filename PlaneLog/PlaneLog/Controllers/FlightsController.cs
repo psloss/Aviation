@@ -14,7 +14,7 @@ namespace PlaneLog.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         
-        // GET: Flights
+        // GET: Flights - Access flights/?planeId=1
         public ActionResult Index(int? planeId)
         {
             var flights = db.Flights.Include(f => f.Plane);

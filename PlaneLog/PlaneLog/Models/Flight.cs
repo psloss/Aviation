@@ -28,7 +28,7 @@ namespace PlaneLog.Models
         [DisplayFormat(DataFormatString = "{0:N1}")]
         public decimal? HobbsIn { get; set; }
 
-        [DisplayName("Fuel\nOut")]
+        [DisplayName("Fuel \n Out")]
         [DisplayFormat(DataFormatString = "{0:N1}")]
         public decimal? FuelOut { get; set; }
 
@@ -36,7 +36,7 @@ namespace PlaneLog.Models
         [DisplayFormat(DataFormatString = "{0:N1}")]
         public decimal? FuelIn { get; set; }
 
-        [DisplayName("Fuel gals\nPurchased")]
+        [DisplayName("Fuel gals \n Purchased")]
         [DisplayFormat(DataFormatString = "{0:N1}")]
         public decimal? FuelPurchased { get; set; }
 
@@ -44,7 +44,7 @@ namespace PlaneLog.Models
         // [DisplayFormat(DataFormatString ="{C}")]
         public decimal? FuelCostGallon { get; set; }
 
-        [DisplayName("Fuel Cost\nTotal")]
+        [DisplayName("Fuel Cost \n Total")]
         public decimal? FuelCostTotal { get; set; }
 
         [DisplayName("Oil \nAdded")]
