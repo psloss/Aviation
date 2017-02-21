@@ -30,9 +30,17 @@ namespace PlaneLog.Controllers
         }
 
         // GET: Report
-        public ActionResult Report()
+        public ActionResult Report(int? planeId)
         {
-            var flights = db.Flights.Include(f => f.Plane).OrderByDescending(x => x.FlightDate);
+            var flights = db.Flights.Include(f => f.Plane);//.OrderByDescending(x => x.FlightDate);
+            if (planeId.HasValue)
+            {
+                flights = flights.Where(x => x.PlaneId == planeId);
+            }
+
+            flights = flights.OrderByDescending(x => x.FlightDate);
+
+            ViewBag.TailNumbers = db.Planes.ToDictionary(x => x.Id, x => x.TailNumber).OrderBy(x => x.Value);
             return View(flights.ToList());
         }
 

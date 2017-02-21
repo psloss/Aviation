@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PlaneLog.Models.Flight> 
+﻿@model IEnumerable<PlaneLog.Models.Flight>
 
 @{
     ViewBag.Title = "Report";
@@ -9,23 +9,23 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-@*<div>
-<div class="form-group">
-    @Html.Label("Plane", htmlAttributes: new { @class = "control-label col-md-2" })
-    <div class="col-md-10">
-        @Html.DropDownList("planeId", new SelectList(ViewBag.TailNumbers, "Key", "Value"),
+<div>
+    <div class="form-group">
+        @Html.Label("Plane", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("planeId", new SelectList(ViewBag.TailNumbers, "Key", "Value"),
              new { @onchange = "CallChangeFunc(this.value)" })
+        </div>
     </div>
 </div>
-</div>
 @*  new stuff here*@
-@*<script>
-    function CallChangeFunc(val)
-    {
-        window.location.href = "/flights/report/?planeId=" + val;
-    }
+<script>
+        function CallChangeFunc(val)
+        {
+            window.location.href = "/flights/report/?planeId=" + val;
+        }
 
-</script>*@
+    </script>
 <table class="table">
     <tr>
         <th>
@@ -33,7 +33,7 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.FltDate)
-        </th>        
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.HobbsIn)
         </th>
@@ -47,7 +47,7 @@
             @Html.DisplayNameFor(model => model.FuelPerHour)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FuelCostGallon) 
+            @Html.DisplayNameFor(model => model.FuelCostGallon)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.FuelCostTD)
@@ -64,46 +64,47 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Plane.TailNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FltDate)
-        </td>
-        
-        <td>
-            @Html.DisplayFor(modelItem => item.HobbsIForm)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HoursFlown)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FuelUsage)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FuelPerHour)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FuelCostGallon)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FuelCostTD)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AddedOil)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OilChange)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Remarks)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })          
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Plane.TailNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FltDate)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.HobbsIForm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoursFlown)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FuelUsage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FuelPerHour)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FuelCostGallon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FuelCostTD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddedOil)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OilChange)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Remarks)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>
