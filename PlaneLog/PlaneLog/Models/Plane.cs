@@ -11,8 +11,18 @@ namespace PlaneLog.Models
     {
 
         public int Id { get; set; }
+
+        private string tailNumber;
         [DisplayName("Tail\nNumber")]
-        public string TailNumber { get; set; }
+        public string TailNumber
+        {
+            get { return tailNumber; }
+            set
+            {
+                if (value != null) value = value.ToUpper();
+                tailNumber = value;
+            }
+        }
         public string Manufacturer { get; set; }
         public string Model { get; set; }
         [DisplayName("Serial\nNumber")]

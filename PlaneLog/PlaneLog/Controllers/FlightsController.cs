@@ -13,19 +13,20 @@ namespace PlaneLog.Controllers
     public class FlightsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        
+
         // GET: Flights - Access flights/?planeId=1
         public ActionResult Index(int? planeId)
         {
             var flights = db.Flights.Include(f => f.Plane);
-            if(planeId.HasValue)
+            if (planeId.HasValue && planeId > 0)
             {
                 flights = flights.Where(x => x.PlaneId == planeId);
             }
 
             flights = flights.OrderByDescending(x => x.FlightDate);
-
-            ViewBag.TailNumbers = db.Planes.ToDictionary(x=> x.Id,x => x.TailNumber).OrderBy(x => x.Value);
+            var tailNumbers = db.Planes.ToDictionary(x => x.Id, x => x.TailNumber.ToUpper()).OrderBy(x => x.Value).ToList();
+            tailNumbers.Insert(0,(new KeyValuePair<int, string>(0, "All")));
+            ViewBag.TailNumbers = tailNumbers;
             return View(flights.ToList());
         }
 
@@ -71,7 +72,7 @@ namespace PlaneLog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,PlaneId,FlightDate,HobbsOut,HobbsIn,FuelOut,FuelIn,FuelPurchased," + 
+        public ActionResult Create([Bind(Include = "Id,PlaneId,FlightDate,HobbsOut,HobbsIn,FuelOut,FuelIn,FuelPurchased," +
             "FuelCostGallon,FuelCostTotal,AddedOil,OilChange,Remarks")] Flight flight)
         {
             if (ModelState.IsValid)
