@@ -62,20 +62,7 @@ namespace PlaneLog.Models
 
         [DisplayName("Current Hours")]
         [DisplayFormat(DataFormatString = "{0:N1}")]
-        public decimal? EngineHours
-        {
-            get
-            {
-                var latestFlight = Flights?.OrderByDescending(x => x.FlightDate)
-                    //.Where(x=> x.OilChange == true)
-                    .FirstOrDefault();
-                if (latestFlight != null)
-                    return latestFlight.HobbsIn;
-                return null;
-            }
-
-            set { }
-        }
+        public decimal? EngineHours { get; set; }
     }
 }
 

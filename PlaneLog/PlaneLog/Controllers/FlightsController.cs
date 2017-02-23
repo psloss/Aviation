@@ -25,7 +25,7 @@ namespace PlaneLog.Controllers
 
             flights = flights.OrderByDescending(x => x.FlightDate);
             var tailNumbers = db.Planes.ToDictionary(x => x.Id, x => x.TailNumber.ToUpper()).OrderBy(x => x.Value).ToList();
-            tailNumbers.Insert(0,(new KeyValuePair<int, string>(0, "All")));
+            tailNumbers.Insert(0, (new KeyValuePair<int, string>(0, "All")));
             ViewBag.TailNumbers = tailNumbers;
             return View(flights.ToList());
         }
@@ -79,6 +79,8 @@ namespace PlaneLog.Controllers
             {
                 db.Flights.Add(flight);
                 db.SaveChanges();
+                UpdatePlaneEngineHours(flight.PlaneId);
+                
                 return RedirectToAction("Index");
             }
 
@@ -113,13 +115,26 @@ namespace PlaneLog.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(flight).State = EntityState.Modified;
-
-                //flight.Plane.EngineHours = flight.HobbsIn;
                 db.SaveChanges();
+                UpdatePlaneEngineHours(flight.PlaneId);
                 return RedirectToAction("Index");
             }
             ViewBag.PlaneId = new SelectList(db.Planes, "Id", "TailNumber", flight.PlaneId);
             return View(flight);
+        }
+
+        public void UpdatePlaneEngineHours(int planeId)
+        {
+            var plane = db.Planes.Include(x => x.Flights)
+                .FirstOrDefault(x => x.Id == planeId);
+            if (null == plane || plane.Flights.Count == 0)
+                return;
+            var latestFlight = plane.Flights.OrderByDescending(x => x.FlightDate).First();
+            plane.EngineHours = latestFlight.HobbsIn;
+            db.SaveChanges();
+            //var latestOilChange =   plane.Flights.Where(x=> x.OilChange == true).OrderByDescending(x => x.FlightDate).FirstOrDefault();
+            //var hrs = latestFlight.HobbsIn - latestOilChange.HobbsOut;
+
         }
 
         // GET: Flights/Delete/5
