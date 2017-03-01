@@ -9,6 +9,7 @@ using System.ComponentModel;
 
 namespace PlaneLog.Models
 {
+    
     public class Flight
     {
         // private readonly decimal LastOilChangeHours;
