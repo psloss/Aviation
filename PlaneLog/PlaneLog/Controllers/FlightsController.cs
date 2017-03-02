@@ -80,7 +80,7 @@ namespace PlaneLog.Controllers
                 db.Flights.Add(flight);
                 db.SaveChanges();
                 UpdatePlaneEngineHours(flight.PlaneId);
-                
+
                 return RedirectToAction("Index");
             }
 
@@ -134,7 +134,12 @@ namespace PlaneLog.Controllers
             db.SaveChanges();
             //var latestOilChange =   plane.Flights.Where(x=> x.OilChange == true).OrderByDescending(x => x.FlightDate).FirstOrDefault();
             //var hrs = latestFlight.HobbsIn - latestOilChange.HobbsOut;
+        }
 
+        public decimal PlaneEngineOilTime(int planeId)
+        {
+            // TODO 
+            return;
         }
 
         // GET: Flights/Delete/5
