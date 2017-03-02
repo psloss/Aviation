@@ -31,8 +31,8 @@ namespace PlaneLog.Models
         }
 
         public DbSet<Plane> Planes { get; set; }
-        //[Table("Flights.New")]
-        public System.Data.Entity.DbSet<PlaneLog.Models.Flight> Flights { get; set; }
+       
+        public DbSet<Flight> Flights { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

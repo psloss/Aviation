@@ -52,7 +52,7 @@ namespace PlaneLog.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Flight flight = db.Flights.Find(id);
+            Flight flight = db.Flights.Include(f => f.Plane).FirstOrDefault(x => x.Id == id);
             if (flight == null)
             {
                 return HttpNotFound();

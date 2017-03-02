@@ -14,9 +14,7 @@ namespace PlaneLog
             string FormtNum = String.Format("{0:0.0}", inp);
             return FormtNum;
         }
-
-
-      
+     
 
         public static string FormDol(decimal? inp)
         {

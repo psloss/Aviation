@@ -15,10 +15,13 @@ namespace PlaneLog.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+       
         // GET: Planes
         public ActionResult Index()
         {
             return View(db.Planes.ToList());
+
+          
         }
 
         // GET: Planes/Details/5

@@ -22,3 +22,9 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/*th.remarks{
+    width: 30px;
+}
+
+/*th { white-space: pre-wrap; }*/*/
