@@ -64,8 +64,8 @@ namespace PlaneLog.Models
         [DisplayFormat(DataFormatString = "{0:N1}")]
         public decimal? EngineHours { get; set; }
 
-        //[DisplayName("Oil Hours")]
-        //public string OilHours { get { return oilHours.value.tostring} }
+        [DisplayName("Oil Hours")]
+        public string OilHours { get { return (EngineHours - LastOilChangeHours).ToString(); } }
     }
 }
 

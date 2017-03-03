@@ -154,6 +154,11 @@ namespace PlaneLog.Controllers
            // return oilHours;
         }
 
+        //public static decimal CalcOilHours(int planeId)
+        //{
+        //    var plane = db.Planes.Include(x => x.Flights)
+        //}
+
         // GET: Flights/Delete/5
         public ActionResult Delete(int? id)
         {
