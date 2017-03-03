@@ -72,7 +72,7 @@ namespace PlaneLog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,PlaneId,FlightDate,HobbsOut,HobbsIn,FuelOut,FuelIn,FuelPurchased," +
+        public ActionResult Create([Bind(Include = "PlaneId,FlightDate,HobbsOut,HobbsIn,FuelOut,FuelIn,FuelPurchased," +
             "FuelCostGallon,FuelCostTotal,AddedOil,OilChange,Remarks")] Flight flight)
         {
             if (ModelState.IsValid)
@@ -80,6 +80,7 @@ namespace PlaneLog.Controllers
                 db.Flights.Add(flight);
                 db.SaveChanges();
                 UpdatePlaneEngineHours(flight.PlaneId);
+                UpdateEngineOilHours(flight.PlaneId);
 
                 return RedirectToAction("Index");
             }
@@ -117,6 +118,7 @@ namespace PlaneLog.Controllers
                 db.Entry(flight).State = EntityState.Modified;
                 db.SaveChanges();
                 UpdatePlaneEngineHours(flight.PlaneId);
+                UpdateEngineOilHours(flight.PlaneId);
                 return RedirectToAction("Index");
             }
             ViewBag.PlaneId = new SelectList(db.Planes, "Id", "TailNumber", flight.PlaneId);
@@ -136,10 +138,20 @@ namespace PlaneLog.Controllers
             //var hrs = latestFlight.HobbsIn - latestOilChange.HobbsOut;
         }
 
-        public decimal PlaneEngineOilTime(int planeId)
+        public void UpdateEngineOilHours(int planeId)
         {
-            // TODO 
-            return;
+            // find last instance of an oil change and store hours in OilTime
+            var plane = db.Planes.Include(x => x.Flights)
+                .FirstOrDefault(x => x.Id == planeId);
+            if (null == plane || plane.Flights.Count == 0)
+                return;
+            var latestOilChange = plane.Flights.Where(x => x.OilChange == true).OrderByDescending(x => x.HobbsOut).FirstOrDefault();
+            plane.LastOilChangeHours = latestOilChange.HobbsOut;
+            db.SaveChanges();
+                        
+            //  var oilHours = plane.EngineHours - latestOilChange.HobbsIn;
+            // LastOilChangeHours is variable name in model
+           // return oilHours;
         }
 
         // GET: Flights/Delete/5

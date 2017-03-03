@@ -88,12 +88,20 @@
         <dd>
             @Html.DisplayFor(model => model.EngineHours)
         </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.oilHours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Plane.oilHours)
+        </dd>*@
         <dt>
             @Html.DisplayNameFor(model => model.RegistrationExpirationDate)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.RegistrationExpirationDate)
+            @Html.DisplayFor(model => model.RegistrationDue)
         </dd>
     </dl>
 </div>
