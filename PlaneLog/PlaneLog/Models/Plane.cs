@@ -66,6 +66,12 @@ namespace PlaneLog.Models
 
         [DisplayName("Oil Hours")]
         public string OilHours { get { return (EngineHours - LastOilChangeHours).ToString(); } }
+
+        public void UpdateLastOilChangeHours()
+        {
+            var latestOilChange = this.Flights.Where(x => x.OilChange == true).OrderByDescending(x => x.HobbsOut).FirstOrDefault();
+            this.LastOilChangeHours = latestOilChange.HobbsOut;
+        }
     }
 }
 

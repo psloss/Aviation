@@ -64,7 +64,16 @@ namespace PlaneLog.Controllers
         public ActionResult Create()
         {
             ViewBag.PlaneId = new SelectList(db.Planes, "Id", "TailNumber");
-            return View();
+            var flight = new Flight();
+            flight.PlaneId = 1;
+            flight.FlightDate = DateTime.Now;
+            var latestFlight = db.Flights.Where(x => x.PlaneId == flight.PlaneId).OrderByDescending(x => x.HobbsIn).FirstOrDefault();
+            if (latestFlight != null)
+            {
+                flight.HobbsOut = latestFlight.HobbsIn;
+                flight.FuelOut = latestFlight.FuelIn;
+            }
+            return View(flight);
         }
 
         // POST: Flights/Create
@@ -145,13 +154,12 @@ namespace PlaneLog.Controllers
                 .FirstOrDefault(x => x.Id == planeId);
             if (null == plane || plane.Flights.Count == 0)
                 return;
-            var latestOilChange = plane.Flights.Where(x => x.OilChange == true).OrderByDescending(x => x.HobbsOut).FirstOrDefault();
-            plane.LastOilChangeHours = latestOilChange.HobbsOut;
+            //var latestOilChange = plane.Flights.Where(x => x.OilChange == true).OrderByDescending(x => x.HobbsOut).FirstOrDefault();
+            //plane.LastOilChangeHours = latestOilChange.HobbsOut;
+
+            plane.UpdateLastOilChangeHours();
             db.SaveChanges();
-                        
-            //  var oilHours = plane.EngineHours - latestOilChange.HobbsIn;
-            // LastOilChangeHours is variable name in model
-           // return oilHours;
+
         }
 
         //public static decimal CalcOilHours(int planeId)

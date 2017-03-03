@@ -36,7 +36,13 @@ namespace PlaneLog.Controllers
             {
                 return HttpNotFound();
             }
-            return View(plane);
+            ViewBag.OilStatus = "normal";
+            //TryParse
+            if (Decimal.Parse(plane.OilHours) > 50)
+            {
+                ViewBag.OilStatus = "danger";
+            }
+                return View(plane);
         }
 
         // GET: Planes/Create

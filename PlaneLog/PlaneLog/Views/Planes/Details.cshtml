@@ -94,7 +94,9 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OilHours)
+            <span class="@ViewBag.OilStatus">
+                @Html.DisplayFor(model => model.OilHours, new { @class = ViewBag.OilStatus })
+            </span>
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.RegistrationExpirationDate)

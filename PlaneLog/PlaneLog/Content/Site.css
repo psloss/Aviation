@@ -23,8 +23,12 @@ textarea {
     max-width: 280px;
 }
 
+.danger {
+    color: #FF3333;
+}
+
 /*th.remarks{
     width: 30px;
 }
 
-/*th { white-space: pre-wrap; }*/*/
+/*th { white-space: pre-wrap; }*/ */ 
