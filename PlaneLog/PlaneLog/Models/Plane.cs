@@ -13,7 +13,7 @@ namespace PlaneLog.Models
         public int Id { get; set; }
 
         private string tailNumber;
-        [DisplayName("Tail Number")]
+        [DisplayName("Number")]
         public string TailNumber
         {
             get { return tailNumber; }
@@ -40,9 +40,6 @@ namespace PlaneLog.Models
         [DisplayName("Hours at\nAnnual")]
         [DisplayFormat(DataFormatString = "{0:N1}")]
         public decimal? HoursLastAnnual { set; get; }
-
-
-        // public decimal?  { get; set; }
 
         [DisplayName("Hours at Oil Change")]
         [DisplayFormat(DataFormatString = "{0:N1}")]

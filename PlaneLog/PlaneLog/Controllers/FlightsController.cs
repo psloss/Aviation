@@ -23,7 +23,7 @@ namespace PlaneLog.Controllers
                 flights = flights.Where(x => x.PlaneId == planeId);
             }
 
-            flights = flights.OrderByDescending(x => x.FlightDate);
+            flights = flights.OrderByDescending(x => x.HobbsOut);
             var tailNumbers = db.Planes.ToDictionary(x => x.Id, x => x.TailNumber.ToUpper()).OrderBy(x => x.Value).ToList();
             tailNumbers.Insert(0, (new KeyValuePair<int, string>(0, "All")));
             ViewBag.TailNumbers = tailNumbers;
@@ -147,6 +147,12 @@ namespace PlaneLog.Controllers
             //var hrs = latestFlight.HobbsIn - latestOilChange.HobbsOut;
         }
 
+        public void UpdateFuelCostTotal(int planeId)
+        {
+            return; // Fuel
+             
+        }
+
         public void UpdateEngineOilHours(int planeId)
         {
             // find last instance of an oil change and store hours in OilTime
@@ -161,11 +167,6 @@ namespace PlaneLog.Controllers
             db.SaveChanges();
 
         }
-
-        //public static decimal CalcOilHours(int planeId)
-        //{
-        //    var plane = db.Planes.Include(x => x.Flights)
-        //}
 
         // GET: Flights/Delete/5
         public ActionResult Delete(int? id)

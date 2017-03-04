@@ -23,8 +23,14 @@ textarea {
     max-width: 280px;
 }
 
+.normal{
+    color:green;
+}
 .danger {
     color: #FF3333;
+}
+.alert {
+    color:darkorange;
 }
 
 /*th.remarks{

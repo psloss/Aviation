@@ -18,8 +18,18 @@ namespace PlaneLog
 
         public static string FormDol(decimal? inp)
         {
-            string FormDol = string.Format("$ {0:N2}", inp);
+            string FormDol = string.Format("${0:N2}", inp);
             return FormDol;
+        }
+
+        public static string FormString(string str, int lng)
+        {
+            if (str == null || str.Length < lng)
+            {
+                str = str.PadLeft(lng);
+            }
+            string FormString = str.Substring(0, lng);
+            return FormString;
         }
 
         //[DisplayName("Hours\nFlown")]

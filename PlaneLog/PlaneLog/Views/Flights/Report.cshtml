@@ -53,7 +53,11 @@
         </th>
 
         <th>
-            @Html.DisplayNameFor(model => model.Remarks)
+            @Html.DisplayNameFor(model => model.OilTime)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.RemarksTrunc)
         </th>
         <th></th>
     </tr>
@@ -67,7 +71,6 @@
             <td>
                 @Html.DisplayFor(modelItem => item.FltDate)
             </td>
-
             <td>
                 @Html.DisplayFor(modelItem => item.HobbsIForm)
             </td>
@@ -86,8 +89,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.FuelCostTD)
             </td>
+            <th class="@ViewBag.OilStatus">                
+                    @Html.DisplayFor(model => item.OilTime)                
+            </th>
+
             <td>
-                @Html.DisplayFor(modelItem => item.Remarks)
+                @Html.DisplayFor(modelItem => item.RemarksTrunc)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id })

@@ -56,10 +56,11 @@
             @Html.DisplayNameFor(model => model.FuelCostTD)
         </th>
         <th class="remarks">
-            @Html.DisplayNameFor(model => model.Remarks)
+            @Html.DisplayNameFor(model => model.RemarksTrunc)
         </th>
         <th></th>
     </tr>
+   
 
 @foreach (var item in Model) {
     <tr>
@@ -91,7 +92,7 @@
             @Html.DisplayFor(modelItem => item.FuelCostTD)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Remarks)
+            @Html.DisplayFor(modelItem => item.RemarksTrunc)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

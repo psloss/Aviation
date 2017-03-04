@@ -35,6 +35,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.EngineManufacturer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EngineManufacturer)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.SerialNumber)
         </dt>
 
@@ -51,13 +59,12 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.EngineManufacturer)
+            @Html.DisplayNameFor(model => model.RegistrationExpirationDate)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.EngineManufacturer)
+            @Html.DisplayFor(model => model.RegistrationDue)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.AnnualDueDate)
         </dt>
@@ -98,13 +105,7 @@
                 @Html.DisplayFor(model => model.OilHours, new { @class = ViewBag.OilStatus })
             </span>
         </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.RegistrationExpirationDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.RegistrationDue)
-        </dd>
+        
     </dl>
 </div>
 <p>

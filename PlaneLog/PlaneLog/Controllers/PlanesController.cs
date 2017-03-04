@@ -15,13 +15,13 @@ namespace PlaneLog.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-       
+
         // GET: Planes
         public ActionResult Index()
         {
             return View(db.Planes.ToList());
 
-          
+
         }
 
         // GET: Planes/Details/5
@@ -42,7 +42,11 @@ namespace PlaneLog.Controllers
             {
                 ViewBag.OilStatus = "danger";
             }
-                return View(plane);
+            else if (Decimal.Parse(plane.OilHours) > 40)
+            {
+                ViewBag.OilStatus = "alert";
+            }
+            return View(plane);
         }
 
         // GET: Planes/Create
