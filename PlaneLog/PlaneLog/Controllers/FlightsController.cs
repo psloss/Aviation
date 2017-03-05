@@ -82,7 +82,7 @@ namespace PlaneLog.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "PlaneId,FlightDate,HobbsOut,HobbsIn,FuelOut,FuelIn,FuelPurchased," +
-            "FuelCostGallon,FuelCostTotal,AddedOil,OilChange,Remarks")] Flight flight)
+            "FuelCostGallon,FuelCostTotal,AddedOil,OilDipstick,OilChange,FlightHours,Remarks")] Flight flight)
         {
             if (ModelState.IsValid)
             {
@@ -120,7 +120,7 @@ namespace PlaneLog.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,PlaneId,FlightDate,HobbsOut,HobbsIn,FuelOut,FuelIn,FuelPurchased," +
-            "FuelCostGallon,FuelCostTotal,AddedOil,OilChange,Remarks")] Flight flight)
+            "FuelCostGallon,FuelCostTotal,AddedOil,OilDipstick,OilChange,FlightHours,Remarks")] Flight flight)
         {
             if (ModelState.IsValid)
             {
@@ -147,8 +147,9 @@ namespace PlaneLog.Controllers
             //var hrs = latestFlight.HobbsIn - latestOilChange.HobbsOut;
         }
 
-        public void UpdateFuelCostTotal(int planeId)
+        public void UpdateFuelCostTotal(decimal FuelP, decimal FuelC)
         {
+            var FuelCostTotal = FuelP * FuelC;
             return; // Fuel
              
         }

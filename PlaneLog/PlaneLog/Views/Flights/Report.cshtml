@@ -51,11 +51,6 @@
         <th>
             @Html.DisplayNameFor(model => model.FuelCostTD)
         </th>
-
-        <th>
-            @Html.DisplayNameFor(model => model.OilTime)
-        </th>
-
         <th>
             @Html.DisplayNameFor(model => model.RemarksTrunc)
         </th>
@@ -89,11 +84,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.FuelCostTD)
             </td>
-            <th class="@ViewBag.OilStatus">                
-                    @Html.DisplayFor(model => item.OilTime)                
-            </th>
-
-            <td>
+                       <td>
                 @Html.DisplayFor(modelItem => item.RemarksTrunc)
             </td>
             <td>

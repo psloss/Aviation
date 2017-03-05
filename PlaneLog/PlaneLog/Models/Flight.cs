@@ -42,15 +42,19 @@ namespace PlaneLog.Models
         [DisplayFormat(DataFormatString = "{0:N1}")]
         public decimal? FuelPurchased { get; set; }
 
-        [DisplayName("Fuel $\nGallon")]
+        [DisplayName("Fuel $Gallon")]
         // [DisplayFormat(DataFormatString ="{C}")]
         public decimal? FuelCostGallon { get; set; }
 
-        [DisplayName("Fuel Cost \n Total")]
-        public decimal? FuelCostTotal { get { return FuelCostGallon * FuelPurchased; } }
+        [DisplayName("Fuel Cost Total")]
+        public decimal? FuelCostTotal { get { return FuelCostGallon * FuelPurchased; }  }
 
         [DisplayName("Oil \nAdded")]
         public bool AddedOil { get; set; }
+
+        [DisplayName("Dipstick")]
+        [DisplayFormat(DataFormatString = "{0:N1}")]
+        public decimal? OilDipstick { get; set; }
 
         [DisplayName("Oil \nChanged")]
         public bool OilChange { get; set; }
@@ -80,19 +84,35 @@ namespace PlaneLog.Models
 
         private decimal FuelUsed(decimal? fuelout, decimal? fuelin, decimal? fuelpurch)
         {
-            if (fuelpurch == null) { fuelpurch = 0; }
+            if (fuelpurch == null) { fuelpurch = 0; FuelCostGallon = 0;  }
             if (fuelout == null) { fuelout = 0; fuelin = 0; }
             decimal FuelUsed = (decimal)fuelout - (decimal)fuelin + (decimal)fuelpurch;
             return FuelUsed;
         }
-        [DisplayName("Oil Hours")]
-        public decimal OilTime { get { return (decimal)HobbsIn - (decimal)Plane.LastOilChangeHours; } }
+        //[DisplayName("Fuel Cost")]
+        //private decimal? fuelcosttotal;
+        //public decimal? FuelCostTotal
+        //{
+        //    get
+        //    {
+        //        return (decimal)this.FuelCostGallon * (decimal)this.FuelPurchased;
+        //    }
+        //    set
+        //    {
+        //        this.fuelcosttotal = (decimal)FuelCostGallon * (decimal)FuelPurchased;
+        //    }
+        //}
+        
+        //[DisplayName("Oil Time")] /*Does planeid need to be included?*/
+        //public decimal OilTime { get { return (decimal)HobbsIn - (decimal)Plane.LastOilChangeHours; } }
 
         [DisplayName("Remarks")]
         public string RemarksTrunc { get { return FormString(Remarks, 15); } }
 
         //    public decimal FuelUsage { get { return (decimal)FuelOut - (decimal)FuelIn; } }
     }
+    // TODO Add updated fuel useage to sql file
+    // TODO 
 }
 
 
