@@ -29,7 +29,7 @@ namespace PlaneLog.Controllers
 
         public ActionResult Planes()
         {
-            ViewBag.Message = "Planes";
+            ViewBag.Message = "Plane";
             return View();
         }
 

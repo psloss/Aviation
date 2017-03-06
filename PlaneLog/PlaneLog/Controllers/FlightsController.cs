@@ -20,12 +20,12 @@ namespace PlaneLog.Controllers
             var flights = db.Flights.Include(f => f.Plane);
             if (planeId.HasValue && planeId > 0)
             {
-                flights = flights.Where(x => x.PlaneId == planeId);
+                flights = flights.Where(x => x.PlaneId == 1);
             }
 
             flights = flights.OrderByDescending(x => x.HobbsOut);
             var tailNumbers = db.Planes.ToDictionary(x => x.Id, x => x.TailNumber.ToUpper()).OrderBy(x => x.Value).ToList();
-            tailNumbers.Insert(0, (new KeyValuePair<int, string>(0, "All")));
+            tailNumbers.Insert(0, (new KeyValuePair<int, string>(1, "N562D")));
             ViewBag.TailNumbers = tailNumbers;
             return View(flights.ToList());
         }

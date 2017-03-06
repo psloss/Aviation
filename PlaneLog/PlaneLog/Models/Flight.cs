@@ -117,7 +117,7 @@ namespace PlaneLog.Models
         private decimal flightHours;
         public decimal? FlightHours
         {
-            get { return HobbsIn - HobbsOut;  }
+            get { return flightHours;  }
             set
             {
                 if (FlightHours == null) FlightHours = 0;
