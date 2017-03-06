@@ -82,7 +82,7 @@ namespace PlaneLog.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "PlaneId,FlightDate,HobbsOut,HobbsIn,FuelOut,FuelIn,FuelPurchased," +
-            "FuelCostGallon,FuelCostTotal,AddedOil,OilDipstick,OilChange,FlightHours,Remarks")] Flight flight)
+            "FuelCostGallon,FuelCostTotal,AddedOil,OilDipstick,OilChange,FlightHours,Remarks,FuelUseHour")] Flight flight)
         {
             if (ModelState.IsValid)
             {
@@ -120,7 +120,7 @@ namespace PlaneLog.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,PlaneId,FlightDate,HobbsOut,HobbsIn,FuelOut,FuelIn,FuelPurchased," +
-            "FuelCostGallon,FuelCostTotal,AddedOil,OilDipstick,OilChange,FlightHours,Remarks")] Flight flight)
+            "FuelCostGallon,FuelCostTotal,AddedOil,OilDipstick,OilChange,FlightHours,Remarks,FuelUseHour")] Flight flight)
         {
             if (ModelState.IsValid)
             {
