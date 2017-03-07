@@ -16,6 +16,7 @@ namespace PlaneLog.Controllers
 
         // GET: Flights - Access flights/?planeId=1
         public ActionResult Index(int? planeId)
+
         {
             var flights = db.Flights.Include(f => f.Plane);
             if (planeId.HasValue && planeId > 0)
@@ -36,7 +37,7 @@ namespace PlaneLog.Controllers
             var flights = db.Flights.Include(f => f.Plane);//.OrderByDescending(x => x.FlightDate);
             if (planeId.HasValue)
             {
-                flights = flights.Where(x => x.PlaneId == planeId);
+                flights = flights.Where(x => x.PlaneId == 1);// planeId changed to 1
             }
 
             flights = flights.OrderByDescending(x => x.FlightDate);
@@ -140,7 +141,7 @@ namespace PlaneLog.Controllers
                 .FirstOrDefault(x => x.Id == planeId);
             if (null == plane || plane.Flights.Count == 0)
                 return;
-            var latestFlight = plane.Flights.OrderByDescending(x => x.FlightDate).First();
+            var latestFlight = plane.Flights.OrderByDescending(x => x.HobbsOut).First(); // changed x.FlightDate to x.HobbsOut
             plane.EngineHours = latestFlight.HobbsIn;
             db.SaveChanges();
             //var latestOilChange =   plane.Flights.Where(x=> x.OilChange == true).OrderByDescending(x => x.FlightDate).FirstOrDefault();
@@ -151,7 +152,7 @@ namespace PlaneLog.Controllers
         {
             var FuelCostTotal = FuelP * FuelC;
             return; // Fuel
-             
+
         }
 
         public void UpdateEngineOilHours(int planeId)
@@ -168,6 +169,23 @@ namespace PlaneLog.Controllers
             db.SaveChanges();
 
         }
+
+        //public void UpdateOilAdded(int planeId)
+        //{
+        //    //find instances of oil added while Oil change = false
+        //    var flight = db.Flights.Include(f => f.Plane)
+        //        .FirstOrDefault(x => x.Id == planeId);
+            
+        //    var latestOilChange = flight.Flights.Where(f => f.OilChange == true).OrderByDescending(x => x.HobbsOut).FirstOrDefault();
+
+        //    foreach (var f in flight) 
+        //        {
+
+        //    }
+
+        //    //plane.UpdateOilQtsAdded();
+        //    //db.SaveChanges();        
+        //}
 
         // GET: Flights/Delete/5
         public ActionResult Delete(int? id)

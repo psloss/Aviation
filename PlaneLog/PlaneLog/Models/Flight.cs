@@ -91,7 +91,6 @@ namespace PlaneLog.Models
         {
             get
             { return FuelCostGallon * FuelPurchased; }
-
             set
             {
                 if (FuelCostGallon == null) FuelCostGallon = 0;
@@ -105,7 +104,6 @@ namespace PlaneLog.Models
         public decimal? FuelUseHour
         {
             get { return FuelUsage / HoursFlown ; }
-
             set
             {
                 if (FuelUseHour == null) FuelUseHour = 0;
@@ -124,7 +122,6 @@ namespace PlaneLog.Models
                 value = HobbsIn - HobbsOut;
                 flightHours = (decimal)value;
             }
-
         }
 
         //[DisplayName("Oil Time")] /*Does planeid need to be included?*/
