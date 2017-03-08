@@ -38,5 +38,7 @@ namespace PlaneLog.Models
         {
             base.OnModelCreating(modelBuilder);
         }
+
+        public System.Data.Entity.DbSet<PlaneLog.Models.Squawk> Squawks { get; set; }
     }
 }

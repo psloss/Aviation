@@ -67,6 +67,9 @@ namespace PlaneLog.Controllers
             ViewBag.OilAdded = oilChanges[plane.LastOilChangeHours.Value];
 
             ViewBag.LastFlight = GetLastFlight(plane.Id);
+            if (ViewBag.LastFlight.FuelIn < 40) {
+                ViewBag.Fuel = "danger";
+            }
             return View(plane);
         }
 

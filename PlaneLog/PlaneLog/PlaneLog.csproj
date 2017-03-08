@@ -172,6 +172,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PlanesController.cs" />
+    <Compile Include="Controllers\SquawksController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -186,7 +187,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Plane.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\Issue.cs" />
+    <Compile Include="Models\Squawk.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
@@ -260,6 +261,11 @@
     <Content Include="Views\Flights\Edit.cshtml" />
     <Content Include="Views\Flights\Index.cshtml" />
     <Content Include="Views\Flights\Report.cshtml" />
+    <Content Include="Views\Squawks\Create.cshtml" />
+    <Content Include="Views\Squawks\Delete.cshtml" />
+    <Content Include="Views\Squawks\Details.cshtml" />
+    <Content Include="Views\Squawks\Edit.cshtml" />
+    <Content Include="Views\Squawks\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

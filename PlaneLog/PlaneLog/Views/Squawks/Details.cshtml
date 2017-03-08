@@ -1,0 +1,90 @@
+﻿@model PlaneLog.Models.Squawk
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Squawk</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PlaneId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlaneId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Issue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Issue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateRercorded)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateRercorded)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resolved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resolved)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateResolved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateResolved)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WhoResolved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WhoResolved)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CostToResolve)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CostToResolve)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

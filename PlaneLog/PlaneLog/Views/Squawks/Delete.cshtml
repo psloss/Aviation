@@ -1,0 +1,96 @@
+﻿@model PlaneLog.Models.Squawk
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Squawk</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PlaneId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlaneId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Issue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Issue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateRercorded)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateRercorded)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resolved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resolved)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateResolved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateResolved)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WhoResolved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WhoResolved)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CostToResolve)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CostToResolve)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
