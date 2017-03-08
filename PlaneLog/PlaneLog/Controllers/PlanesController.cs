@@ -25,6 +25,18 @@ namespace PlaneLog.Controllers
 
         }
 
+        private Plane GetDefaultPlane()
+        {
+            Plane plane = db.Planes.Include(x => x.Flights).FirstOrDefault(x => x.Id == 1);
+            return plane;
+        }
+
+        private Flight GetLastFlight(int planeId)
+        {
+            Flight f = db.Flights.Where(x => x.PlaneId == planeId).OrderByDescending(x => x.HobbsOut).FirstOrDefault();
+            return f;
+        }
+
         // GET: Planes/Details/5
         public ActionResult Details(int? id)
         {
@@ -53,6 +65,8 @@ namespace PlaneLog.Controllers
 
 
             ViewBag.OilAdded = oilChanges[plane.LastOilChangeHours.Value];
+
+            ViewBag.LastFlight = GetLastFlight(plane.Id);
             return View(plane);
         }
 
