@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using static PlaneLog.Models.Flight;
 using System.Web;
 
 namespace PlaneLog.Models
@@ -69,6 +70,7 @@ namespace PlaneLog.Models
             var latestOilChange = this.Flights.Where(x => x.OilChange == true).OrderByDescending(x => x.HobbsOut).FirstOrDefault();
             this.LastOilChangeHours = latestOilChange.HobbsOut;
         }
+
         //public void UpdateOilAddedHours()
         //{
         //    var oilAddedHours = this.Flights.Where(x => x.AddedOil == true).OrderByDescending(x => x.HobbsOut).FirstOrDefault();

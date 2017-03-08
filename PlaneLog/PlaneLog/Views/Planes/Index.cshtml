@@ -7,15 +7,15 @@
 <h2>N562D</h2>
 
 <p>
-   @*@Html.DisplayFor(modelItem => item.TailNumber)*@
-    
+    @*@Html.DisplayFor(modelItem => item.TailNumber)*@
+
 </p>
 <table class="table">
     <tr>
         @*<th>
-            @Html.DisplayNameFor(model => model.TailNumber)
-        </th>*@
-       <th>
+                @Html.DisplayNameFor(model => model.TailNumber)
+            </th>*@
+        <th>
             @Html.DisplayNameFor(model => model.Manufacturer)
         </th>
         <th>
@@ -26,9 +26,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.YearManufactured)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EngineManufacturer)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.AnnualDueDate)
@@ -42,53 +39,54 @@
         <th>
             @Html.DisplayNameFor(model => model.EngineHours)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RegistrationDue)
-        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Fuel)
+        </th>*@
+
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.TailNumber)
-        </td>*@
-        <td>
-            @Html.DisplayFor(modelItem => item.Manufacturer)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Model)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SerialNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.YearManufactured)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EngineManufacturer)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AnnualDue)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HoursLastAnnual)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OilHours)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EngineHours)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RegistrationDue)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) 
-           
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.TailNumber)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Manufacturer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SerialNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearManufactured)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.AnnualDue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoursLastAnnual)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OilHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EngineHours)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Fuel)
+            </td>*@
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id })
+
+            </td>
+        </tr>
+    }
 
 </table>

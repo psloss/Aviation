@@ -144,9 +144,18 @@ namespace PlaneLog.Controllers
             var latestFlight = plane.Flights.OrderByDescending(x => x.HobbsOut).First(); // changed x.FlightDate to x.HobbsOut
             plane.EngineHours = latestFlight.HobbsIn;
             db.SaveChanges();
-            //var latestOilChange =   plane.Flights.Where(x=> x.OilChange == true).OrderByDescending(x => x.FlightDate).FirstOrDefault();
-            //var hrs = latestFlight.HobbsIn - latestOilChange.HobbsOut;
-        }
+                    }
+
+        //public void UpdateFuelIn(int planeId)
+        //{
+        //    var plane = db.Planes.Include(x => x.Flights)
+        //        .FirstOrDefault(x => x.Id == planeId);
+        //    if (null == plane || plane.Flights.Count == 0)
+        //        return;
+        //    var latestFlight = plane.Flights.OrderByDescending(x => x.HobbsOut).First();
+        //    plane.Fuel = latestFlight.FuelIn;
+        //   // db.SaveChanges();
+        //}
 
         public void UpdateFuelCostTotal(decimal FuelP, decimal FuelC)
         {
