@@ -170,12 +170,29 @@ namespace PlaneLog.Controllers
 
         }
 
+        public void SaveOilAdded(int planeId)
+        {
+            var plane = db.Planes.Include(x => x.Flights).FirstOrDefault(x => x.Id == planeId);
+            var lastOilChange = plane.LastOilChangeHours;
+
+            var flights = db.Flights.Where(x => x.PlaneId == planeId
+            && x.HobbsOut > lastOilChange
+            && x.AddedOil == true);
+
+            var numberOfOilAdded = flights.Count();
+        }
+
+       
+
+
+        //Calculate qts of oil added from last oil change to now in terms of Hobbs out.
+
         //public void UpdateOilAdded(int planeId)
         //{
         //    //find instances of oil added while Oil change = false
         //    var flight = db.Flights.Include(f => f.Plane)
         //        .FirstOrDefault(x => x.Id == planeId);
-            
+
         //    var latestOilChange = flight.Flights.Where(f => f.OilChange == true).OrderByDescending(x => x.HobbsOut).FirstOrDefault();
 
         //    foreach (var f in flight) 

@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PlaneLog.Models;
+using System.Text;
 // test
 
 namespace PlaneLog.Controllers
@@ -46,9 +47,50 @@ namespace PlaneLog.Controllers
             {
                 ViewBag.OilStatus = "alert";
             }
+
+            //ViewBag.OilAddedTable = CalcOilAdded(plane.Id);
+            var oilChanges =  CalcOilAdded(plane.Id);
+
+
+            ViewBag.OilAdded = oilChanges[plane.LastOilChangeHours.Value];
             return View(plane);
         }
 
+        public Dictionary<decimal, int> CalcOilAdded(int planeId)
+        {
+            Dictionary<decimal, int> result = new Dictionary<decimal, int>();
+
+            var oilChanges = db.Flights
+                .Where(x => x.PlaneId == planeId && x.OilChange == true)
+                .OrderByDescending(x => x.HobbsOut)
+                .Select(x => x.HobbsOut).ToList();
+
+            var upperLimit = Decimal.MaxValue;
+
+            for (int i = 0; i < oilChanges.Count(); i++)
+            {
+                var oilChange = oilChanges[i];
+                if (oilChange == null) oilChange = 0;
+
+                var flights = db.Flights.Where(x => x.PlaneId == planeId && x.HobbsOut > oilChange && x.HobbsOut < upperLimit && x.AddedOil == true);
+
+                result.Add(oilChange.Value, flights.Count());
+                upperLimit = oilChange.Value;
+            }
+
+            var flightsBeforeFirstOilChange = db.Flights.Where(x => x.PlaneId == planeId && x.HobbsOut < upperLimit && x.AddedOil == true);
+            result.Add(0, flightsBeforeFirstOilChange.Count());
+
+            //StringBuilder returnValue = new StringBuilder();
+            //foreach (var k in result.Keys)
+            //{
+            //    returnValue.AppendFormat("[{0}: {1}] ", k, result[k]);
+            //    returnValue.AppendLine();
+            //}
+            //return returnValue.ToString();
+
+            return result;
+        }
         // GET: Planes/Create
         public ActionResult Create()
         {
@@ -131,6 +173,7 @@ namespace PlaneLog.Controllers
             return RedirectToAction("Index");
         }
 
+      
         protected override void Dispose(bool disposing)
         {
             if (disposing)
