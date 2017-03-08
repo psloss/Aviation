@@ -183,27 +183,6 @@ namespace PlaneLog.Controllers
         }
 
        
-
-
-        //Calculate qts of oil added from last oil change to now in terms of Hobbs out.
-
-        //public void UpdateOilAdded(int planeId)
-        //{
-        //    //find instances of oil added while Oil change = false
-        //    var flight = db.Flights.Include(f => f.Plane)
-        //        .FirstOrDefault(x => x.Id == planeId);
-
-        //    var latestOilChange = flight.Flights.Where(f => f.OilChange == true).OrderByDescending(x => x.HobbsOut).FirstOrDefault();
-
-        //    foreach (var f in flight) 
-        //        {
-
-        //    }
-
-        //    //plane.UpdateOilQtsAdded();
-        //    //db.SaveChanges();        
-        //}
-
         // GET: Flights/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -227,6 +206,8 @@ namespace PlaneLog.Controllers
             Flight flight = db.Flights.Find(id);
             db.Flights.Remove(flight);
             db.SaveChanges();
+            UpdatePlaneEngineHours(flight.PlaneId);
+            UpdateEngineOilHours(flight.PlaneId);
             return RedirectToAction("Index");
         }
 
