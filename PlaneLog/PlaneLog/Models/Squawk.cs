@@ -16,7 +16,7 @@ namespace PlaneLog.Models
         public Plane Plane { get; set; }
         public string Issue { get; set; }
         public DateTime DateRecorded { get; set; }
-        public bool? Resolved { get; set; }
+        public bool Resolved { get; set; }
         public DateTime? DateResolved { get; set; }
         public string WhoResolved { get; set; }
         public decimal? CostToResolve { get; set; }
