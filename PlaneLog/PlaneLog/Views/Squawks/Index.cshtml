@@ -4,21 +4,36 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Squawks</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+<div>
+<div class="form-group">
+    @Html.Label("Plane", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.DropDownList("planeId", new SelectList(ViewBag.TailNumbers, "Key", "Value"),
+                 new { @onchange = "CallChangeFunc(this.value)" })       
+    </div>
+</div>
+</div>
+<script>
+    function CallChangeFunc(val) {
+        window.location.href = "/flights/?planeId=" + val;
+    }
+
+</script>
 <table class="table">
     <tr>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.PlaneId)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Issue)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateRercorded)
+            @Html.DisplayNameFor(model => model.DateRecorded)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Resolved)
@@ -43,14 +58,14 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.PlaneId)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Issue)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DateRercorded)
+            @Html.DisplayFor(modelItem => item.DateRecorded)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Resolved)
