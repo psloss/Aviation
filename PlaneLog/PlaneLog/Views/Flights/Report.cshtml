@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<PlaneLog.Models.Flight>
+  
+@using PlaneLog.Helpers
 
 @{
     ViewBag.Title = "Report";
@@ -52,8 +54,8 @@
             @Html.DisplayNameFor(model => model.FuelCostTD)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RemarksTrunc)
-        </th>
+           @Html.DisplayNameFor(model => model.RemarksTrunc)
+                   </th>
         <th></th>
     </tr>
 
@@ -85,12 +87,13 @@
                 @Html.DisplayFor(modelItem => item.FuelCostTD)
             </td>
                        <td>
-                @Html.DisplayFor(modelItem => item.RemarksTrunc)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id })
-            </td>
-        </tr>
-    }
+               @Html.DisplayFor(modelItem => item.RemarksTrunc)
+            @*    @Html.Truncate(item.Remarks, 20)  *@
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
