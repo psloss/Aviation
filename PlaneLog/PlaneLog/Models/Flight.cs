@@ -7,6 +7,7 @@ using static PlaneLog.Utils;
 using static PlaneLog.Models.Plane;
 using System.ComponentModel;
 
+
 namespace PlaneLog.Models
 {
 
@@ -84,7 +85,7 @@ namespace PlaneLog.Models
             decimal FuelUsed = (decimal)fuelout - (decimal)fuelin + (decimal)fuelpurch;
             return FuelUsed;
         }
-        // TODO fix this mess!!
+        
         private decimal fuelCostTotal;
         [DisplayName("Fuel Cost")]
         public decimal? FuelCostTotal
@@ -123,16 +124,12 @@ namespace PlaneLog.Models
                 flightHours = (decimal)value;
             }
         }
-
-        //[DisplayName("Oil Time")] /*Does planeid need to be included?*/
-        //public decimal OilTime { get { return (decimal)HobbsIn - (decimal)Plane.LastOilChangeHours; } }
+        //public string fuelStr { return form} 
 
         [DisplayName("Remarks")]
         public string RemarksTrunc { get { return FormString(Remarks, 15); } }
 
     }
-    // TODO Add updated fuel useage to sql file
-    // TODO 
-}
+   }
 
 

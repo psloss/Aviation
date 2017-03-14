@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<PlaneLog.Models.Flight>
 
+@*@using PlaneLog.Helpers*@
+
 @{
     ViewBag.Title = "Index";
 }
@@ -96,6 +98,8 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FuelCostGD)
+                @*@Html.FormDol(item.FuelCostGallon)*@
+                
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FuelCostTD)

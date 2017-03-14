@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<PlaneLog.Models.Flight>
-  
+
 @using PlaneLog.Helpers
 
 @{
@@ -54,8 +54,8 @@
             @Html.DisplayNameFor(model => model.FuelCostTD)
         </th>
         <th>
-           @Html.DisplayNameFor(model => model.RemarksTrunc)
-                   </th>
+            @Html.DisplayNameFor(model => model.RemarksTrunc)
+        </th>
         <th></th>
     </tr>
 
@@ -81,19 +81,23 @@
                 @Html.DisplayFor(modelItem => item.FuelUseHour)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FuelCostGallon)
+                @*@Html.DisplayFor(modelItem => item.FuelCostGallon)*@
+                @Html.FormNumber(item.FuelCostGallon, 2)
             </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.FuelCostTD)
+                @*@Html.FormDollar(item.FuelCostTotal, 2)*@
             </td>
-                       <td>
-               @Html.DisplayFor(modelItem => item.RemarksTrunc)
-            @*    @Html.Truncate(item.Remarks, 20)  *@
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
-                </td>
-            </tr>
-        }
 
-    </table>
+            <td>
+                @*      @Html.DisplayFor(modelItem => item.RemarksTrunc) *@
+                @Html.Truncate(item.Remarks, 20)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
