@@ -17,7 +17,7 @@ namespace PlaneLog.Helpers
                 return input.Substring(0, length) + "..more";
         }
 
-        public static decimal FormDollar(this HtmlHelper helper, decimal input, int decimals)
+        public static decimal FormDollar(this HtmlHelper helper, decimal? input, int decimals)
         {
             if (string.IsNullOrEmpty(input.ToString()) == true) return 0;
             else
@@ -27,13 +27,22 @@ namespace PlaneLog.Helpers
             }
         }
 
-        public static string FormNumber(this HtmlHelper helper, decimal? input, int decpl)
+        public static string FormNumber(this HtmlHelper helper, decimal? input, int decimals)
         {
             if (string.IsNullOrEmpty(input.ToString()) == true) return "0.0";
             else
             {
-                string FormNum = Math.Round((decimal)input, decpl).ToString();
+                string FormNum = Math.Round((decimal)input, decimals).ToString();
                 return FormNum;
+            }
+        }
+        public static string FormDate(this HtmlHelper helper, DateTime? input)
+        {
+            if (input == null) return null;
+            else
+            {
+                string FormDate = input.Value.ToString("MM/dd/yy");
+                return FormDate;
             }
         }
     }
