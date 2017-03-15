@@ -14,7 +14,7 @@ namespace PlaneLog.Helpers
             if (input.Length <= length)
                 return input;
             else
-                return input.Substring(0, length) + "..more";
+                return input.Substring(0, length) +  "<span style=\"color:red\"> ..more</span>";
         }
 
         public static decimal FormDollar(this HtmlHelper helper, decimal? input, int decimals)

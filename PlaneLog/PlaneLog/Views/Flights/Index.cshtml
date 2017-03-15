@@ -107,7 +107,7 @@
             </td>
             <td>
                 @*@Html.DisplayFor(modelItem => item.RemarksTrunc)*@
-                @Html.Truncate(item.Remarks, 15)
+                @Html.Raw(@Html.Truncate(item.Remarks, 20))
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
