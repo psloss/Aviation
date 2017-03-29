@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<PlaneLog.Models.Squawk>
-
+@using PlaneLog.Helpers
 @{
     ViewBag.Title = "Index";
 }
@@ -65,13 +65,15 @@
             @Html.DisplayFor(modelItem => item.Issue)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DateRecorded)
+            @*@Html.DisplayFor(modelItem => item.DateRecorded)*@
+            @Html.FormDate(item.DateRecorded)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Resolved)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DateResolved)
+            @*@Html.DisplayFor(modelItem => item.DateResolved)*@
+            @Html.FormDate(item.DateRecorded)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.WhoResolved)
